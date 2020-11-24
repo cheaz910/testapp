@@ -10,7 +10,8 @@ function Home({ t, currentLanguage, i18n }) {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
 	      <meta property="og:title" content={i18n.language === 'ru' ? 'RUUU' : 'ENNN'} />
 	      <meta name="description" content={i18n.language === 'ru' ? 'RUUUDESCR' : 'ENNNDESCR'} />
 	      <meta name="og:description" content={i18n.language === 'ru' ? 'RUUU_OG_DESCR' : 'ENNN_OG_DESCR'} />
