@@ -20,12 +20,13 @@
   },
   "scripts": {
     "start": "next start",
-    "build": "react-scripts build",
+    "build": "next build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "next build",
     "deploy": "gh-pages -d build",
-    "dev": "next dev"
+    "dev": "next dev",
+    "export": "next export"
   },
   "eslintConfig": {
     "extends": [
