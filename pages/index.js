@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Layout from '../components/Layout'
 import { Link, withTranslation, i18n } from '../i18n'
 
 const test = {
@@ -10,17 +11,13 @@ const test = {
 function Home({ t, currentLanguage, i18n, res }) {
 	console.log(t, i18n, i18n.language);
 	console.log(currentLanguage);
+	const meta = {
+		title: (i18n.language === 'ru' ? 'RUUU' : 'ENNN') + res,
+		description:i18n.language === 'ru' ? 'RUUUDESCR' : 'ENNNDESCR'
+	}
   return (
+  	<Layout meta={meta}>
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-<meta property="og:locale" content="ru_RU" />
-<meta property="og:locale:alternate" content="en_US" />
-	      <meta property="og:title" content={(i18n.language === 'ru' ? 'RUUU' : 'ENNN') + res} />
-	      <meta name="description" content={i18n.language === 'ru' ? 'RUUUDESCR' : 'ENNNDESCR'} />
-	      <meta name="og:description" content={i18n.language === 'ru' ? 'RUUU_OG_DESCR' : 'ENNN_OG_DESCR'} />
-      </Head>
       <button onClick={() => i18n.changeLanguage('ru')}>ru</button>
       <button onClick={() => i18n.changeLanguage('en')}>en</button>
       <main className={styles.main}>
@@ -75,6 +72,7 @@ function Home({ t, currentLanguage, i18n, res }) {
         </a>
       </footer>
     </div>
+    </Layout>
   )
 }
 
