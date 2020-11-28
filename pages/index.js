@@ -1,25 +1,14 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Layout from '../components/Layout'
-import { Link, withTranslation, i18n } from '../i18n'
 
-const test = {
-	'en': 'itsen',
-	'ru': 'itsru'
-}
-
-function Home({ t, currentLanguage, i18n, res }) {
-	console.log(t, i18n, i18n.language);
-	console.log(currentLanguage);
-	const meta = {
-		title: (i18n.language === 'ru' ? 'RUUU' : 'ENNN') + res,
-		description:i18n.language === 'ru' ? 'RUUUDESCR' : 'ENNNDESCR'
-	}
+export default function Home() {
   return (
-  	<Layout meta={meta}>
     <div className={styles.container}>
-      <button onClick={() => i18n.changeLanguage('ru')}>ru</button>
-      <button onClick={() => i18n.changeLanguage('en')}>en</button>
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -72,17 +61,5 @@ function Home({ t, currentLanguage, i18n, res }) {
         </a>
       </footer>
     </div>
-    </Layout>
   )
 }
-
-Home.getInitialProps = async ({ req }) => {
-  const currentLanguage = req ? req.language : i18n.language
-  return {
-    namespacesRequired: ['common'],
-    currentLanguage,
-    res: test[currentLanguage]
-  }
-}
-
-export default withTranslation('common')(Home)
