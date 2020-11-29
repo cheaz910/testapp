@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 const ClownWrapper = styled.div`
   position: fixed;
   bottom: 0;
+  font-size: 0;
 
   .circle {
     border-radius: 50%; 
