@@ -1,15 +1,40 @@
 import Head from 'next/head'
+import styled from 'styled-components'
 import styles from '../styles/Home.module.css'
+
+const ClownWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
+
+  .circle {
+    border-radius: 50%; 
+    width: 93px; 
+    height: 93px;
+    position: absolute;
+    background-color: red; 
+    left: 293px; 
+    top: 240px;
+    cursor: pointer;
+    opacity: 0;
+
+    &:hover {
+      opacity: .1;
+    }
+  }
+`;
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>peepoclown</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
+      <ClownWrapper>
+        <div className='circle' onClick={() => alert('honk') } />
+        <img src="/static/svg/peepoclown.svg" width="500px" style={{ }} />
+      </ClownWrapper>
+      {/* <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -59,7 +84,7 @@ export default function Home() {
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
