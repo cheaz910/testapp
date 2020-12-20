@@ -3,9 +3,13 @@ import styled from 'styled-components'
 import styles from '../styles/Home.module.css'
 
 const ClownWrapper = styled.div`
-  position: fixed;
-  bottom: 0;
-  font-size: 0;
+  
+width: 100vw;
+height: 100vh;
+background-image: url('/static/img/quest.jpg');
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
 
   .circle {
     border-radius: 50%; 
@@ -28,12 +32,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>peepoclown</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>segall</title>
+        <link rel="icon" href="/static/svg/peepoclown.svg" />
       </Head>
       <ClownWrapper>
-        <div className='circle' onClick={() => alert('honk') } />
-        <img src="/static/svg/peepoclown.svg" width="500px" style={{ }} />
+        {/* <div className='circle' onClick={() => alert('honk') } />
+        <img src="/static/svg/peepoclown.svg" width="500px" style={{ }} /> */}
       </ClownWrapper>
       {/* <main className={styles.main}>
         <h1 className={styles.title}>
