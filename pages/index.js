@@ -1,15 +1,12 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
 import styled from 'styled-components'
 import styles from '../styles/Home.module.css'
 
 const ClownWrapper = styled.div`
-  
-width: 100vw;
-height: 100vh;
-background-image: url('/static/img/quest.jpg');
-background-repeat: no-repeat;
-background-size: contain;
-background-position: center;
+  position: fixed;
+  bottom: 0;
+  font-size: 0;
 
   .circle {
     border-radius: 50%; 
@@ -29,15 +26,17 @@ background-position: center;
 `;
 
 export default function Home() {
+  const [click, setClick] = useState(false)
+  console.log(click)
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Head>
         <title>segall</title>
         <link rel="icon" href="/static/svg/peepoclown.svg" />
       </Head>
-      <ClownWrapper>
-        {/* <div className='circle' onClick={() => alert('honk') } />
-        <img src="/static/svg/peepoclown.svg" width="500px" style={{ }} /> */}
+      <ClownWrapper className={'rotate' + (click ? ' down' : '')}>
+        <div className='circle' onClick={() => setClick(!click)} />
+        <img src="/static/svg/peepoclown.svg" width="500px" style={{ }} />
       </ClownWrapper>
       {/* <main className={styles.main}>
         <h1 className={styles.title}>
